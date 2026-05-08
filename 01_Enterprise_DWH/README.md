@@ -30,7 +30,7 @@ Esta arquitectura permitió separar el procesamiento pesado de la visualización
 ## ⚙️ Estrategia de Carga Incremental (Stored Procedures)
 Para optimizar el rendimiento y reducir la ventana de tiempo del ETL, se implementó una estrategia de **Carga Incremental** mediante Stored Procedures que gestionan la lógica de "Delta" (solo cambios nuevos o modificados).
 
-
+[Ver Script](../Scripts/Store_Procedure_Example.txt)
 
 ---
 
