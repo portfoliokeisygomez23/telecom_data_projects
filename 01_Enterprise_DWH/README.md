@@ -21,6 +21,7 @@ Se diseñó e implementó un flujo de datos estructurado para desacoplar la oper
     * **Consumo en MicroStrategy:** Los reportes finales se alimentan directamente desde este DWH, asegurando tiempos de respuesta rápidos y consistencia en los KPIs.
 
 Esta arquitectura permitió separar el procesamiento pesado de la visualización, logrando una gobernanza total sobre las reglas de negocio de cada departamento.
+
 ---
 
 ## ✅ Arquitectura Técnica
