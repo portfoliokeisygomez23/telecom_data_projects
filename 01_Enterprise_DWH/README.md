@@ -6,19 +6,22 @@ Diseño y construcción de un ecosistema de **Business Intelligence** integral p
 ---
 
 ## 🚨 El Reto
-La información se encontraba fragmentada en diferentes bases de datos operativas. Esto generaba inconsistencias en los reportes (ej. Ventas no coincidía con Contabilidad) y una alta carga sobre los servidores de producción al intentar generar reportes en tiempo real.
+La compañía enfrentaba silos de información y cuellos de botella críticos:
+* **Fragmentación:** Los datos residían en un motor Oracle de alta transaccionalidad.
+* **Rendimiento:** La generación de reportes directamente sobre las bases operativas degradaba el performance del servicio.
+* **Inconsistencia:** No existía una "Única Fuente de Verdad", lo que generaba discrepancias en los indicadores entre áreas.
 
 ---
 
-## ✅ Solución Implementada: Arquitectura de 3 Capas (Oracle - SQL - DWH)
+## ✅ Solución Implementada: Arquitectura de Datos Profesional (Oracle - SQL - DWH)
 
-Se diseñó e implementó un flujo de datos estructurado para desacoplar la operación del análisis, garantizando que el consumo de reportes no afectara el rendimiento de los sistemas críticos:
+Se implementó una arquitectura de tres capas para desacoplar la operación del análisis:
 
-* **Capa 1: Ingesta desde Oracle (Raw Data):** Extracción de grandes volúmenes de datos crudos desde el core transaccional de la compañía (Oracle).
-* **Capa 2: Repositorio Transaccional (SQL Server):** Centralización de la información necesaria en SQL Server, actuando como un centro de datos operativo para la empresa.
-* **Capa 3: Data Warehouse Especializado (DWH):** * Se decidió crear un repositorio exclusivo en SQL Server optimizado para **Reportería Estratégica**.
-    * **Automatización con SSIS:** Desarrollo de paquetes modulares en *SQL Server Integration Services* por área de negocio (**Ventas, Atención al Cliente, Logística, Contabilidad y Gerencial**).
-    * **Consumo en MicroStrategy:** Los reportes finales se alimentan directamente desde este DWH, asegurando tiempos de respuesta rápidos y consistencia en los KPIs.
+1. **Capa de Ingesta (Oracle):** Extracción de la data *raw* (cruda) desde el motor principal. Se gestionó la extracción de volúmenes masivos de registros sin impactar la operación del core de negocio.
+2. **Capa Transaccional (SQL Server):** Centralización de la información crítica en un entorno SQL Server intermedio, consolidando la data de toda la empresa en un repositorio operativo unificado.
+3. **Capa Analítica (DWH Especializado):** * Se construyó un **Data Warehouse exclusivo para reportería**, eliminando la competencia por recursos con los sistemas de producción.
+    * **Modularización con SSIS:** Desarrollo de un pipeline en *SQL Server Integration Services* segmentado por unidades de negocio (**Ventas, Atención al Cliente, Logística, Contabilidad y Gerencial**).
+    * **Capa Semántica en MicroStrategy:** Implementación de reglas de negocio centralizadas para asegurar la consistencia de los KPIs en todos los niveles.
 
 Esta arquitectura permitió separar el procesamiento pesado de la visualización, logrando una gobernanza total sobre las reglas de negocio de cada departamento.
 
