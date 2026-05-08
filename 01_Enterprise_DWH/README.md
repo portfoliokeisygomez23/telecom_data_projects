@@ -24,23 +24,25 @@ Esta arquitectura permitió separar el procesamiento pesado de la visualización
 
 ---
 
-## ✅ Arquitectura Técnica
-* **Motor de Base de Datos:** SQL Server.
-* **Herramienta ETL:** SQL Server Integration Services (SSIS).
-* **Almacenamiento:** Arquitectura de dos capas (Staging Area + Data Warehouse).
-* **Plataforma de BI:** MicroStrategy.
+## 📊 Estrategia de Visualización & BI
+El producto final es un centro de mando en **MicroStrategy** que permite la gestión por excepción:
+* **Dashboards de Impacto:** Seguimiento de métricas clave como *Churn*, *ARPU* y cumplimiento de *SLAs* de instalación.
+* **Matching de Datos:** Cruce automático entre los registros de logística (decodificadores/antenas) y las activaciones comerciales.
+* **Reportabilidad de Grano Fino:** Capacidad de navegar desde una vista gerencial hasta el detalle técnico de cada suscriptor.
 
 ---
 
 ## 💡 Impacto y Beneficios Obtenidos
-* **Única Fuente de Verdad:** Se eliminaron las discusiones sobre "qué número es el correcto" entre departamentos.
-* **Mantenimiento Eficiente:** Al tener paquetes separados por área, es posible hacer ajustes en Logística sin afectar o detener los reportes de Contabilidad.
-* **Rendimiento del Sistema:** Se liberó la carga de los servidores de operación en un **80%**, ya que los reportes ahora consultan el DWH y no las bases de datos de trabajo diario.
-* **Confiabilidad:** Gracias a la etapa de Staging, la tasa de error en los reportes finales se redujo al mínimo.
+* **Estabilidad del Sistema:** Se liberó la carga de los servidores de operación en un **80%**, al desplazar el consumo de datos hacia el DWH.
+* **Mantenimiento Eficiente:** Gracias a los paquetes **SSIS segmentados**, es posible realizar ajustes en el flujo de Logística sin afectar los reportes de Ventas o Contabilidad.
+* **Única Fuente de Verdad:** Eliminación de discrepancias entre departamentos; los números financieros ahora coinciden con la operación técnica.
+* **Calidad de Datos:** La zona de **Staging** redujo la tasa de errores y duplicados en los reportes finales al mínimo.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
-* SQL Server (T-SQL, Stored Procedures)
-* SQL Server Integration Services (SSIS)
-* MicroStrategy Desktop / Web
+* **Motores de BD:** Oracle (Raw), SQL Server (Transactional & DWH).
+* **ETL:** SQL Server Integration Services (SSIS).
+* **BI Platform:** MicroStrategy Desktop / Web.
+* **Lenguajes:** T-SQL (Stored Procedures, Views, Optimization).
+
