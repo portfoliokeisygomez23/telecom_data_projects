@@ -1,4 +1,4 @@
-# 🏛️ Enterprise Data Warehouse: Arquitectura ETL con SSIS y MicroStrategy
+# 🏛️ Case Study: Enterprise Data Warehouse: Arquitectura ETL con SSIS y MicroStrategy
 
 ## 📝 Resumen del Proyecto
 Diseño y construcción de un ecosistema de **Business Intelligence** integral para centralizar la operación de una compañía multiarea. La solución utiliza un flujo robusto de extracción, transformación y carga (ETL) para consolidar datos dispersos en un **Data Warehouse (DWH)** unificado, sirviendo como base para el análisis estratégico en **MicroStrategy**.
