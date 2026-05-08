@@ -34,8 +34,22 @@ Para optimizar el rendimiento y reducir la ventana de tiempo del ETL, se impleme
 
 ---
 
+### 2. Gestión de Errores y Alertas
+1. En el flujo de control de SSIS se incluyó un manejador de eventos (**Event Handlers**) para capturar excepciones en tiempo real:
+* **Notificaciones Automáticas:** Envío de alertas vía SQL Mail en caso de fallos críticos, detallando el componente exacto del paquete que presentó el error.
+* **Manejo de Reintentos:** Configuración de lógica de reintento automático para errores transitorios de red o bloqueos de tablas (*Deadlocks*).
+
+2. Se desarrolló un reporte técnico en **MicroStrategy** exclusivo para el equipo de BI, permitiendo visualizar:
+* **Gantt de Ejecución:** Tiempos de duración de cada paquete para identificar cuellos de botella.
+* **Tasa de Éxito Mensual:** KPI de disponibilidad del sistema.
+* **Histórico de Errores:** Clasificación de fallos por área (ej. errores de formato en Logística o falta de conexión en Contabilidad).
+
+Gracias a este esquema, el tiempo de respuesta ante fallos (**MTTR - Mean Time To Repair**) se redujo drásticamente, permitiendo que todos los equipos de la empresa contaran con los datos actualizados antes del inicio de la jornada laboral el 99.9% de las veces.
+
+---
+
 ## 📊 Estrategia de Visualización & BI
-El producto final es un centro de mando en **MicroStrategy** que permite la gestión por excepción:
+El producto final es un centro de mando en **MicroStrategy** que permite el analisis de la información:
 * **Dashboards de Impacto:** Seguimiento de métricas clave como *Churn*, *ARPU* y cumplimiento de *SLAs* de instalación.
 * **Matching de Datos:** Cruce automático entre los registros de logística (decodificadores/antenas) y las activaciones comerciales.
 * **Reportabilidad de Grano Fino:** Capacidad de navegar desde una vista gerencial hasta el detalle técnico de cada suscriptor.
