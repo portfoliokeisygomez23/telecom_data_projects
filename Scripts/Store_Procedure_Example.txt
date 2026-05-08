@@ -1,0 +1,19 @@
+CREATE PROCEDURE [dbo].[sp_CargaIncremental_Ventas]
+AS
+BEGIN
+    DECLARE @LastUpdate DATETIME = (SELECT MAX(FechaProceso) FROM Fact_Ventas);
+
+    MERGE INTO Fact_Ventas AS Target
+    USING (SELECT * FROM Staging_Ventas WHERE FechaModificacion > @LastUpdate) AS Source
+    ON (Target.TransactionID = Source.TransactionID)
+    
+    WHEN MATCHED THEN
+        UPDATE SET 
+            Target.Estado = Source.Estado,
+            Target.Monto = Source.Monto,
+            Target.FechaModificacion = Source.FechaModificacion
+
+    WHEN NOT MATCHED BY TARGET THEN
+        INSERT (TransactionID, ClienteID, ProductoID, Monto, FechaProceso)
+        VALUES (Source.TransactionID, Source.ClienteID, Source.ProductoID, Source.Monto, Source.FechaProceso);
+END
