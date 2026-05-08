@@ -10,22 +10,17 @@ La información se encontraba fragmentada en diferentes bases de datos operativa
 
 ---
 
-## 🛠️ Solución Implementada: Flujo de Datos Profesional
+## ✅ Solución Implementada: Arquitectura de 3 Capas (Oracle - SQL - DWH)
 
-### 1. Extracción y Limpieza (SQL Server + SSIS)
-Se implementó una arquitectura de carga por etapas para garantizar que solo los datos limpios lleguen a los ejecutivos:
+Se diseñó e implementó un flujo de datos estructurado para desacoplar la operación del análisis, garantizando que el consumo de reportes no afectara el rendimiento de los sistemas críticos:
 
-* **Paquetes SSIS Modulares:** Se desarrolló un paquete de **Integration Services** independiente por cada unidad de negocio:
-    * 💰 **Ventas** | 📞 **Atención al Cliente** | 📦 **Logística** | 🧾 **Contabilidad** | 📈 **Gerencial**
-* **Capa de Staging (Validación):** Los datos no pasan directo al reporte. Primero llegan a una zona de "Staging" donde se validan formatos, se eliminan duplicados y se limpian nulos. Si un dato no cumple la regla, no avanza.
-* **Carga al Data Warehouse:** Una vez validados, los datos se integran en el **DWH final** bajo un modelo de **Esquema en Estrella** (Tablas de Hechos y Dimensiones), optimizado para consultas rápidas.
+* **Capa 1: Ingesta desde Oracle (Raw Data):** Extracción de grandes volúmenes de datos crudos desde el core transaccional de la compañía (Oracle).
+* **Capa 2: Repositorio Transaccional (SQL Server):** Centralización de la información necesaria en SQL Server, actuando como un centro de datos operativo para la empresa.
+* **Capa 3: Data Warehouse Especializado (DWH):** * Se decidió crear un repositorio exclusivo en SQL Server optimizado para **Reportería Estratégica**.
+    * **Automatización con SSIS:** Desarrollo de paquetes modulares en *SQL Server Integration Services* por área de negocio (**Ventas, Atención al Cliente, Logística, Contabilidad y Gerencial**).
+    * **Consumo en MicroStrategy:** Los reportes finales se alimentan directamente desde este DWH, asegurando tiempos de respuesta rápidos y consistencia en los KPIs.
 
-### 2. Capa de Inteligencia (MicroStrategy)
-Uso de MicroStrategy para la democratización de la información:
-* **Objeto de Negocio Único:** Creación de una capa semántica donde las métricas (como el "Margen de Utilidad") se definen una sola vez y se reutilizan en todos los reportes, evitando discrepancias.
-* **Dashboards de Alto Impacto:** Creación de tableros visuales para la gerencia y reportes de "grano fino" para los supervisores operativos.
-* **Gobernanza:** Configuración de permisos de seguridad para que cada área acceda exclusivamente a su información correspondiente.
-
+Esta arquitectura permitió separar el procesamiento pesado de la visualización, logrando una gobernanza total sobre las reglas de negocio de cada departamento.
 ---
 
 ## ✅ Arquitectura Técnica
