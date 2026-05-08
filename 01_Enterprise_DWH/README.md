@@ -30,10 +30,6 @@ Esta arquitectura permitió separar el procesamiento pesado de la visualización
 ## ⚙️ Estrategia de Carga Incremental (Stored Procedures)
 Para optimizar el rendimiento y reducir la ventana de tiempo del ETL, se implementó una estrategia de **Carga Incremental** mediante Stored Procedures que gestionan la lógica de "Delta" (solo cambios nuevos o modificados).
 
-### 🛠️ Lógica de Actualización (Upsert)
-Se utilizó el patrón **Merge/Upsert** para insertar registros nuevos y actualizar los existentes, evitando cargas totales diarias:
-
--- Ejemplo de lógica incremental para el área de Ventas
 
 
 ---
