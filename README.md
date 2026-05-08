@@ -45,20 +45,20 @@ Este repositorio cubre el ciclo de vida del dato aplicado a servicios masivos, u
 
 ## 🛠️ Stack Tecnológico
 * Data Viz:
-     * ✅ Microstrategy
+     * ✅ MicroStrategy Desktop / Web
      * ✅ Cognos
-     * ✅ Microsoft SSRS
+     * ✅ SSRS
 * Database:
-     * ✅ SQL Server
+     * ✅ SQL Server (T-SQL, Stored Procedures)
      * ✅ Oracle 
 * Lenguajes:
      * ✅ SQL
 * Cloud & Integración:
-     * ✅ Microsoft SSIS
+     * ✅ SQL Server Integration Services (SSIS)
 * Arquitectura:
      * ✅ Modelado Estrella
      * ✅ ETL/ELT
-  
+
 ---
 
 ## 🎯 Objetivo
