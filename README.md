@@ -1,4 +1,4 @@
-# 📡 Telecoms Business Intelligence Portfolio: Media & Entertainment
+# 📡 Telecom Business Intelligence Portfolio: Media & Entertainment
 
 ## 📝 Resumen
 Este repositorio centraliza casos de uso y arquitecturas de Business Intelligence diseñadas para la industria de telecomunicaciones y servicios de entretenimiento masivo. Los proyectos aquí presentados demuestran la capacidad de transformar datos transaccionales, técnicos y de clientes en activos estratégicos para la toma de decisiones.<br>
